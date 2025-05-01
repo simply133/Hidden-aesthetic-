@@ -1,0 +1,90 @@
+# This is a basic workflow to help you get started with Actions <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Aesthetic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hidden Aesthetic</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Hidden Aesthetic</h2>
+        <p>Bold streetwear made for the fearless.</p>
+    </section>
+
+    <section class="products" id="shop">
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Product 1">
+            <h3>Product Title</h3>
+            <p>$49.99</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Product 2">
+            <h3>Product Title</h3>
+            <p>$59.99</p>
+        </div>
+    </section>
+
+    <section id="cod" style="padding:2rem; background:#222; color:#fff;">
+        <h2>Pay on Delivery</h2>
+        <p>Fill the form below and we’ll deliver to your doorstep.</p>
+        <form onsubmit="alert('Order placed! We will contact you soon.'); return false;">
+            <input type="text" name="name" placeholder="Full Name" required style="padding:0.5rem; width:100%; margin:0.5rem 0;"><br>
+            <input type="text" name="address" placeholder="Delivery Address" required style="padding:0.5rem; width:100%; margin:0.5rem 0;"><br>
+            <input type="tel" name="phone" placeholder="Phone Number" required style="padding:0.5rem; width:100%; margin:0.5rem 0;"><br>
+            <button type="submit" style="padding:0.75rem 1.5rem; background:#0f0; border:none; cursor:pointer;">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hidden Aesthetic. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
